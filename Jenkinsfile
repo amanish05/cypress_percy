@@ -1,7 +1,6 @@
 
 pipeline {
     agent any
-    def build = ${BROWSERSTACK_BUILD_NAME}
     stages {
         stage('Dependencies') {
             steps {
@@ -15,7 +14,6 @@ pipeline {
             steps {
                 sh 'npm install browserstack-cypress-cli'
                 sh 'npm run browserstack'
-
             }
         }
         stage('Cypress and Percy') {
@@ -23,11 +21,10 @@ pipeline {
                 sh 'npm run percy'
             }
         }
-        
     }
     post ('Reports'){
         always {
-            browserStackReportPublisher 'automate'
+            //browserStackReportPublisher 'automate'
             junit 'results/*.xml'
             pangolinTestRail(testRailProject: 'Pangolin_POC', configs: [[failIfUploadFailed: false, format: 'junit', milestonePath: 'Cypress-Percy ML1\\Cypress-Percy ML2', resultPattern: 'results/*.xml', testPath: 'Master\\Section1\\SubSection1', testPlan: 'Cypress-Percy Test Plan ${BUILD_NUMBER}', testRun: 'Cypress-Percy Test Run ${BUILD_NUMBER}']])
         }
