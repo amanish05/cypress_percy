@@ -36,7 +36,6 @@
     "run_settings": {
         "cypress_config_file": "./cypress.json",
         "project_name": "My sandbox project",
-        "exclude": [],
         "parallels": "1",
         "npm_dependencies": {
             "@percy/cypress": "^2.3.2"
