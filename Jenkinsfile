@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Dependencies') {
             steps {
-                echo '${build}'
                 sh 'rm -f results/*'
                 //git branch: 'main', credentialsId: 'b63d46d7-ad9a-4f54-aafd-4d7c7596ee9c', url: 'https://github.com/amanish05/cypress_percy.git'
                 sh 'npm install'
