@@ -4,16 +4,15 @@ pipeline {
         stage('Dependencies') {
             steps {
                 sh 'rm -f results/*'
-                //git branch: 'main', credentialsId: 'b63d46d7-ad9a-4f54-aafd-4d7c7596ee9c', url: 'https://github.com/amanish05/cypress_percy.git'
+                git branch: 'main', credentialsId: 'b63d46d7-ad9a-4f54-aafd-4d7c7596ee9c', url: 'https://github.com/amanish05/cypress_percy.git'
                 sh 'npm install'
             }
         }
         stage('Browserstack') {
             steps {
                 sh 'npm install browserstack-cypress-cli'
-                sh 'npm run browserstack'
                 browserstack(credentialsId: '519c4a97-89ba-4b72-bcd6-69b765337d46') {
-
+                    sh 'npm run browserstack'
                 }
             }
         }
