@@ -1,7 +1,7 @@
 {
-    "auth": {
-        "username": "manish770",
-        "access_key": "BES8RRyeSZ3QCzgCcpxo"
+    "auth": { 
+              "username": "BROWSERSTACK_USERNAME",
+              "access_key": "BROWSERSTACK_ACCESS_KEY"
     },
     "browsers": [
         {
