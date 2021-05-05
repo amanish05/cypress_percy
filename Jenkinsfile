@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
     stages {
@@ -11,21 +10,39 @@ pipeline {
         }
         stage('Browserstack') {
             steps {
+                //sh 'npm install'
                 sh 'npm install browserstack-cypress-cli'
                 sh 'npm run browserstack'
+                browserstack(credentialsId: '519c4a97-89ba-4b72-bcd6-69b765337d46') {
+                //sh 'browserstack-cypress run --build_name $BROWSERSTACK_BUILD_NAME'
+                //sh 'browserstack-cypress run --username sazzrahman1 --key xWhXXhNn2z4Xkp47gpam'
+                sh 'browserstack-cypress run --sync --build-name $BROWSERSTACK_BUILD_NAME'
+                }
             }
         }
         stage('Cypress and Percy') {
             steps {
-                sh 'npm run percy'
+              sh 'npm run percy'
+            }
+        }
+      stage('Post Build') {
+            steps{
+                publishHTML target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'results',
+                    reportFiles: 'browserstack-cypress-report.html',
+                    reportName: 'Cypress HTML Report'
+                ]
             }
         }
     }
     post ('Reports'){
         always {
-            //browserStackReportPublisher 'automate'
+            browserStackReportPublisher 'automate'
             junit 'results/*.xml'
-            pangolinTestRail(testRailProject: 'Pangolin_POC', configs: [[failIfUploadFailed: false, format: 'junit', milestonePath: 'Cypress-Percy ML1\\Cypress-Percy ML2', resultPattern: 'results/*.xml', testPath: 'Master\\Section1\\SubSection1', testPlan: 'Cypress-Percy Test Plan ${BUILD_NUMBER}', testRun: 'Cypress-Percy Test Run ${BUILD_NUMBER}']])
+            pangolinTestRail(testRailProject: 'Pangolin_POC', configs: [[failIfUploadFailed: false, format: 'junit', resultPattern: 'results/*.xml', testPath: 'Master\\Section1\\SubSection1']])
         }
     }
 }
