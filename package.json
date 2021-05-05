@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "percy": "percy exec -- cypress run",
-    "browserstack": "browserstack-cypress run --sync --build-name $BROWSERSTACK_BUILD_NAME"
+    "browserstack": "browserstack-cypress run --sync --build-name $BROWSERSTACK_BUILD_NAME",
     "rs": "node_modules\\.bin\\cypress run",
     "preTest": "npm run rs --"
   },
