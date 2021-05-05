@@ -1,6 +1,5 @@
 { 
     "baseUrl": "https://www.wthubspot.com/component-docs",
-    // "baseUrl": "https://www.wthubspot.com/component-docs",
     "video": false ,
     "defaultCommandTimeout" : 25000,
     "pageLoadTimeout" : 25000,
