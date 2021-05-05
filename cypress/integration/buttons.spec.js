@@ -9,44 +9,44 @@ describe('[Buttons]', function() {
             cy.get('#buttons-button-component').click();
         })
 
-        it('Is edit clickable', function () {
-            /** 
-            *** Arrange  - setup
-            *** Visit webpage
-            *** Query for an element
-            *** Take action on element
-            *** Interact with the element
-            *** Assert - Make an assertion 
-            **/
-            cy.url()
-                .should('includes', '/buttons-button-component--editable');
-        });
+        // it('Is edit clickable', function () {
+        //     /** 
+        //     *** Arrange  - setup
+        //     *** Visit webpage
+        //     *** Query for an element
+        //     *** Take action on element
+        //     *** Interact with the element
+        //     *** Assert - Make an assertion 
+        //     **/
+        //     cy.url()
+        //         .should('includes', '/buttons-button-component--editable');
+        // });
     
-        it('Does have all controls', function () {
-            cy.get('#buttons-button-component--editable').click();
-            cy.get('#tabbutton-controls-6').should('have.text', 'Controls (6)');
-        });
+        // it('Does have all controls', function () {
+        //     cy.get('#buttons-button-component--editable').click();
+        //     cy.get('#tabbutton-controls-6').should('have.text', 'Controls (6)');
+        // });
     
-        it('Should have 0 accessibility violations', function () {
-            cy.get('#buttons-button-component--editable').click();
-            cy.get('#tabbutton-accessibility').click();
+        // it('Should have 0 accessibility violations', function () {
+        //     cy.get('#buttons-button-component--editable').click();
+        //     cy.get('#tabbutton-accessibility').click();
     
-            cy.get('.css-qacwg0').should('have.text', '1 Violations');
-        });
+        //     cy.get('.css-qacwg0').should('have.text', '1 Violations');
+        // });
 
-        it('Does all test passed', function () {
-            cy.get('#buttons-button-component--editable').click();
-            cy.get('#tabbutton-accessibility').click();
+        // it('Does all test passed', function () {
+        //     cy.get('#buttons-button-component--editable').click();
+        //     cy.get('#tabbutton-accessibility').click();
     
-            cy.get('.css-fg630j').should('have.text', '2 Passes');
-        });
+        //     cy.get('.css-fg630j').should('have.text', '2 Passes');
+        // });
     
-        it('Should have 0 incomplete', function () {
-            cy.get('#buttons-button-component--editable').click();
-            cy.get('#tabbutton-accessibility').click();
+        // it('Should have 0 incomplete', function () {
+        //     cy.get('#buttons-button-component--editable').click();
+        //     cy.get('#tabbutton-accessibility').click();
     
-            cy.get('.css-fg630j').should('have.text', '2 Passes');
-        });
+        //     cy.get('.css-fg630j').should('have.text', '2 Passes');
+        // });
     });
 })
    
