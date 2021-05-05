@@ -10,7 +10,7 @@
             "versions": [
                 "latest"
             ]
-        },
+        }/*,
         {
             "browser": "firefox",
             "os": "Windows 10",
@@ -31,7 +31,7 @@
             "versions": [
                 "latest"
             ]
-        }
+        }*/
     ],
     "run_settings": {
         "cypress_config_file": "./cypress.json",
