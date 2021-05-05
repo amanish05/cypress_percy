@@ -10,13 +10,10 @@ pipeline {
         }
         stage('Browserstack') {
             steps {
-                //sh 'npm install'
                 sh 'npm install browserstack-cypress-cli'
                 sh 'npm run browserstack'
                 browserstack(credentialsId: '519c4a97-89ba-4b72-bcd6-69b765337d46') {
-                //sh 'browserstack-cypress run --build_name $BROWSERSTACK_BUILD_NAME'
-                //sh 'browserstack-cypress run --username sazzrahman1 --key xWhXXhNn2z4Xkp47gpam'
-                sh 'browserstack-cypress run --sync --build-name $BROWSERSTACK_BUILD_NAME'
+
                 }
             }
         }
