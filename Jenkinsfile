@@ -39,7 +39,7 @@ pipeline {
     post ('Reports'){
         always {
             //browserStackReportPublisher 'automate'
-            junit 'results/*.xml'
+            junit 'results-junit/*.xml'
             pangolinTestRail(testRailProject: 'Pangolin_POC', configs: [[failIfUploadFailed: false, format: 'junit', resultPattern: 'results-junit/*.xml', testPath: 'Master\\Section1\\SubSection1']])
         }
     }
