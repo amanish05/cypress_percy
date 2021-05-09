@@ -13,16 +13,16 @@ pipeline {
             steps {
                 sh 'npm install browserstack-cypress-cli'
                 browserstack(credentialsId: '519c4a97-89ba-4b72-bcd6-69b765337d46') {
-                    //sh 'npm run browserstack'
-                    sh 'npm run percy-browserstack'
+                    sh 'npm run browserstack'
+                    //sh 'npm run percy-browserstack'
                 }
             }
         }
-        // stage('Cypress and Percy') {
-        //     steps {
-        //       sh 'npm run percy'
-        //     }
-        // }
+        stage('Cypress and Percy') {
+            steps {
+              sh 'npm run percy'
+            }
+        }
       stage('Post Build') {
             steps{
                 publishHTML target: [
