@@ -12,15 +12,16 @@ pipeline {
             steps {
                 sh 'npm install browserstack-cypress-cli'
                 browserstack(credentialsId: '519c4a97-89ba-4b72-bcd6-69b765337d46') {
-                    sh 'npm run browserstack'
+                    //sh 'npm run browserstack'
+                    sh 'npm run percy-browserstack'
                 }
             }
         }
-        stage('Cypress and Percy') {
-            steps {
-              sh 'npm run percy'
-            }
-        }
+        // stage('Cypress and Percy') {
+        //     steps {
+        //       sh 'npm run percy'
+        //     }
+        // }
       stage('Post Build') {
             steps{
                 publishHTML target: [
@@ -36,9 +37,9 @@ pipeline {
     }
     post ('Reports'){
         always {
-            browserStackReportPublisher 'automate'
+            //browserStackReportPublisher 'automate'
             junit 'results/*.xml'
-            pangolinTestRail(testRailProject: 'Pangolin_POC', configs: [[failIfUploadFailed: false, format: 'junit', resultPattern: 'results/*.xml', testPath: 'Master\\Section1\\SubSection1']])
+            pangolinTestRail(testRailProject: 'Pangolin_POC', configs: [[failIfUploadFailed: false, format: 'junit', resultPattern: 'results-junit/*.xml', testPath: 'Master\\Section1\\SubSection1']])
         }
     }
 }
