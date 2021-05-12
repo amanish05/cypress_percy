@@ -4,8 +4,8 @@ describe('[Avatar]', function() {
     context('Component -> Editable', () => {
         beforeEach(() => {
             cy.visit('/?path=/story/');
+            cy.get('#buttons-avatar').click();
             cy.get('#buttons-avatar--extra-small').click();
-            //cy.get('#buttons-avatar-component').click();
         })
 
         it('Is edit clickable', function () {
