@@ -11,6 +11,7 @@ pipeline {
         stage('Browserstack') {
             steps {
                 sh 'npm install browserstack-cypress-cli'
+                sh 'npm install --save-dev cypress-multi-reporters mocha-junit-reporter'
                 browserstack(credentialsId: '519c4a97-89ba-4b72-bcd6-69b765337d46') {
                     sh 'npm run browserstack'
                 }
