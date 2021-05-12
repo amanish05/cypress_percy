@@ -4,8 +4,8 @@
     "defaultCommandTimeout" : 25000,
     "pageLoadTimeout" : 25000,
     "responseTimeout" : 25000,
-    "reporter": "cypress-multi-reporters",
+    "reporter": "mocha-junit-reporter",
     "reporterOptions": {
-        "configFile": "reporter-config.json"
+        "mochaFile": "results/results-[hash].xml"
       }
 }
