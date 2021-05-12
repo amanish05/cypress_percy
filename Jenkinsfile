@@ -22,18 +22,18 @@ pipeline {
         //       sh 'npm run percy'
         //     }
         // }
-      stage('Post Build') {
-            steps{
-                publishHTML target: [
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: false,
-                    keepAll: true,
-                    reportDir: 'results',
-                    reportFiles: 'browserstack-cypress-report.html',
-                    reportName: 'Cypress HTML Report'
-                ]
-            }
-        }
+    //   stage('Post Build') {
+    //         steps{
+    //             publishHTML target: [
+    //                 allowMissing: false,
+    //                 alwaysLinkToLastBuild: false,
+    //                 keepAll: true,
+    //                 reportDir: 'results',
+    //                 reportFiles: 'browserstack-cypress-report.html',
+    //                 reportName: 'Cypress HTML Report'
+    //             ]
+    //         }
+    //     }
     }
     post ('Reports'){
         always {
