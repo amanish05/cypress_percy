@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "browserstack": "browserstack-cypress run --sync --build-name $BROWSERSTACK_BUILD_NAME"
+    "browserstack": "browserstack-cypress run --sync"
   },
   "author": "",
   "license": "ISC",
