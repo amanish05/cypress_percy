@@ -15,7 +15,6 @@
     "run_settings": {
         "cypress_config_file": "./cypress.json",
         "project_name": "My sandbox project",
-        "build_name": "BROWSERSTACK_BUILD_NAME",
         "parallels": "2",
         "npm_dependencies": {
             "@percy/cypress": "^2.3.2"

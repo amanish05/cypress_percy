@@ -45,7 +45,7 @@ describe('[Buttons]', function() {
             cy.get('#buttons-button--primary').click();
             cy.get('#tabbutton-accessibility').click();
     
-            cy.get('.css-fg630j').should('have.text', '0 Incomplete');
+            cy.get('.css-css-iau1th').should('have.text', '0 Incomplete');
         });
     });
 })

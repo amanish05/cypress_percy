@@ -22,14 +22,14 @@ describe('[Avatar]', function() {
                 .should('includes', '/buttons-avatar--extra-small');
             
             // Take a snapshot for visual diffing
-            cy.percySnapshot();
+            //cy.percySnapshot();
         });
     
         it('Does have all controls', function () {
             cy.get('#buttons-avatar--extra-small').click();
 
             cy.get('#tabbutton-controls-4').should('have.text', 'Controls (4)');
-            cy.percySnapshot();
+            //cy.percySnapshot();
         });
     
         it('Should have 0 accessibility violations', function () {
@@ -37,7 +37,7 @@ describe('[Avatar]', function() {
             cy.get('#tabbutton-accessibility').click();
     
             cy.get('.css-qacwg0').should('have.text', '0 Violations');
-            cy.percySnapshot();
+            //cy.percySnapshot();
         });
     
         it('Does all test passed', function () {
@@ -45,7 +45,7 @@ describe('[Avatar]', function() {
             cy.get('#tabbutton-accessibility').click();
     
             cy.get('.css-fg630j').should('have.text', '7 Passes');
-            cy.percySnapshot();
+            //cy.percySnapshot();
         });
     
         it('Should have 0 incomplete', function () {
@@ -53,7 +53,7 @@ describe('[Avatar]', function() {
             cy.get('#tabbutton-accessibility').click();
     
             cy.get('.css-iau1th').should('have.text', '0 Incomplete');
-            cy.percySnapshot();
+            //cy.percySnapshot();
         }); 
         
     })
