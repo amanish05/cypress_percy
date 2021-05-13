@@ -17,27 +17,27 @@ pipeline {
                 }
             }
         }
-        // stage('Cypress and Percy') {
-        //     steps {
-        //       sh 'npm run percy'
-        //     }
-        // }
-    //   stage('Post Build') {
-    //         steps{
-    //             publishHTML target: [
-    //                 allowMissing: false,
-    //                 alwaysLinkToLastBuild: false,
-    //                 keepAll: true,
-    //                 reportDir: 'results',
-    //                 reportFiles: 'browserstack-cypress-report.html',
-    //                 reportName: 'Cypress HTML Report'
-    //             ]
-    //         }
-    //     }
+        stage('Cypress and Percy') {
+            steps {
+              sh 'npm run percy'
+            }
+        }
+      stage('Post Build') {
+            steps{
+                publishHTML target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'results',
+                    reportFiles: 'browserstack-cypress-report.html',
+                    reportName: 'Cypress HTML Report'
+                ]
+            }
+        }
     }
     post ('Reports'){
         always {
-            junit 'results/*.xml'
+            junit allowEmptyResults: true, testResults: 'results/*.xml'
             pangolinTestRail(testRailProject: 'Pangolin_POC', configs: [[failIfUploadFailed: false, format: 'junit', resultPattern: 'results/*.xml', testPath: 'Master\\Section1\\SubSection1']])
         }
     }

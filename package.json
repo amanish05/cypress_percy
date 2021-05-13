@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "browserstack": "browserstack-cypress run --sync --build-name $BROWSERSTACK_BUILD_NAME"
+    "browserstack": "browserstack-cypress run --sync --build-name $BROWSERSTACK_BUILD_NAME",
+    "percy": "percy exec -- cypress run",
+    "rs": "node_modules\\.bin\\cypress run",
+    "preTest": "npm run rs --"
   },
   "author": "",
   "license": "ISC",
